@@ -85,8 +85,8 @@ const Profile = () => {
                 size="small"
                 sx={{ ml: 2 }}
             >
-                <Avatar sx={{ width: 40, height: 40 }}>
-                    BK
+                <Avatar sx={{ width: 40, height: 40, bgcolor: "#000" }}>
+                    B
                 </Avatar>
             </IconButton>
             <StyledMenu
