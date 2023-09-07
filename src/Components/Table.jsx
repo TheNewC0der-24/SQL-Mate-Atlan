@@ -24,7 +24,6 @@ const Table = ({ query, headers, rows }) => {
         <Box
           sx={{
             mt: 5,
-            mb: 5,
             bgcolor: "#fff",
             borderRadius: "10px",
             p: 2,
