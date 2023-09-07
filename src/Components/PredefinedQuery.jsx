@@ -45,28 +45,26 @@ const PredefinedQuery = ({ setDefaults, setValue, selectedQuery, setSelectedQuer
       />
 
       {queryValue.map((item, index) => (
-        <Box>
-          <List key={index}>
-            <ListItem>
-              <ListItemButton
-                sx={{
-                  bgcolor: selectedQuery === item.query ? "#000" : "#f5f5f5",
+        <List key={index}>
+          <ListItem>
+            <ListItemButton
+              sx={{
+                bgcolor: selectedQuery === item.query ? "#000" : "#f5f5f5",
+                color: selectedQuery === item.query ? "#fff" : "#000",
+                "&:hover": {
+                  bgcolor: selectedQuery === item.query ? "#000" : "#ccc",
                   color: selectedQuery === item.query ? "#fff" : "#000",
-                  "&:hover": {
-                    bgcolor: selectedQuery === item.query ? "#000" : "#ccc",
-                    color: selectedQuery === item.query ? "#fff" : "#000",
-                  }
-                }}
-                onClick={() => {
-                  setDefaults(item.default);
-                  setValue(item.query);
-                  setSelectedQuery(item.query);
-                }}>
-                <ListItemText primary={item.query} />
-              </ListItemButton>
-            </ListItem>
-          </List>
-        </Box>
+                }
+              }}
+              onClick={() => {
+                setDefaults(item.default);
+                setValue(item.query);
+                setSelectedQuery(item.query);
+              }}>
+              <ListItemText primary={item.query} />
+            </ListItemButton>
+          </ListItem>
+        </List>
       ))}
     </Card>
   );
