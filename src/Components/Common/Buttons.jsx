@@ -11,14 +11,17 @@ import getTableData from "../../Util/GetTableData";
 function Buttons({ setQuery, setValue, setHeaders, setRows, defaults, value, setSelectedQuery }) {
 
   const runQuery = () => {
-    setQuery(value);
+    try {
+      const { tableHeaders, tableRows } = getTableData(defaults);
+      setQuery(value);
+      setHeaders(tableHeaders);
+      setRows(tableRows);
+      setSelectedQuery(value);
+      toast.success("Query executed successfully.");
+    } catch (error) {
+      toast.error(error.message);
+    }
 
-    const { tableHeaders, tableRows } = getTableData(defaults);
-
-    setHeaders(tableHeaders);
-    setRows(tableRows);
-
-    toast.success("Query executed successfully.");
   };
 
   const reset = () => {
@@ -33,7 +36,7 @@ function Buttons({ setQuery, setValue, setHeaders, setRows, defaults, value, set
 
   return (
     <>
-      <Box mt={3} mb={2} sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
+      <Box mt={3} mb={2} sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem", flexWrap: "wrap" }}>
 
         <Typography variant="h5" sx={{ fontWeight: "bold" }}>
           Input

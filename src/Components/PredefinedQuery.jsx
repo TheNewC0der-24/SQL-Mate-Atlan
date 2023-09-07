@@ -17,11 +17,13 @@ const PredefinedQuery = ({ setDefaults, setValue, selectedQuery, setSelectedQuer
     }
   ];
 
-
-
   return (
     <Card sx={{ borderRadius: "10px" }}>
       <CardHeader
+        sx={{
+          flexWrap: "wrap",
+          gap: "0.5rem",
+        }}
         title="Available Queries"
         action={
           <Button
