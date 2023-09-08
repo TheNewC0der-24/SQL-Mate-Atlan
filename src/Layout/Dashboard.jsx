@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy } from "react";
 
 import { Paper, Container, Grid } from "@mui/material";
 
-import Navbar from "./Header/Navbar";
-import PredefinedQuery from "../Components/PredefinedQuery";
-import Buttons from "../Components/Common/Buttons";
-import SqlEditor from "../Editor/SqlEditor";
-import Table from "../Components/Table";
+const Navbar = lazy(() => import("./Header/Navbar"));
+const PredefinedQuery = lazy(() => import("../Components/PredefinedQuery"));
+const Buttons = lazy(() => import("../Components/Common/Buttons"));
+const SqlEditor = lazy(() => import("../Editor/SqlEditor"));
+const Table = lazy(() => import("../Components/Table"));
 
 const Dashboard = () => {
 

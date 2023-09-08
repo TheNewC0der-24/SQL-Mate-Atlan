@@ -186,7 +186,6 @@ export default function UpdateProfile() {
                                 Update
                             </Button>
                             <Button
-                                disabled={loading}
                                 variant="outlined"
                                 onClick={() => navigate("/")}
                             >
