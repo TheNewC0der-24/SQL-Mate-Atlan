@@ -13,7 +13,11 @@ import {
     Button
 } from "@mui/material";
 
+import { FaCircleUser } from 'react-icons/fa6';
+
 import { styled, alpha } from "@mui/material/styles";
+
+import { useAuth } from '../../../Context/AuthContext';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -73,8 +77,11 @@ const Profile = () => {
         setAnchorEl(null);
     };
 
+    const { logout, currentUser } = useAuth();
+
     const handleLogout = () => {
         handleClose();
+        logout();
         navigate("/login");
     };
 
@@ -86,7 +93,7 @@ const Profile = () => {
                 sx={{ ml: 2 }}
             >
                 <Avatar sx={{ width: 40, height: 40, bgcolor: "#000" }}>
-                    B
+                    {currentUser.email.charAt(0).toUpperCase()}
                 </Avatar>
             </IconButton>
             <StyledMenu
@@ -97,12 +104,20 @@ const Profile = () => {
                 <MenuItem>
                     <Stack>
                         <Typography variant='subtitle1' color='text.primary' sx={{ fontWeight: 'bold', fontFamily: "Public Sans,sans-serif" }}>
-                            Bhavya Khurana
+                            Welcome
                         </Typography>
-                        <Typography variant='subtitle2' color='text.secondary' sx={{ fontFamily: "Public Sans,sans-serif" }}>bhavyakhurana002@gmail.com</Typography>
+                        <Typography variant='subtitle2' color='text.secondary' sx={{ fontFamily: "Public Sans,sans-serif" }}>
+                            {currentUser.email}
+                        </Typography>
                     </Stack>
                 </MenuItem>
                 <Divider sx={{ my: 1 }} />
+                <MenuItem onClick={() => {
+                    handleClose();
+                    navigate("/update-profile");
+                }}>
+                    <FaCircleUser style={{ marginRight: "0.5rem" }} />Profile
+                </MenuItem>
 
                 <Box sx={{ p: 2, pt: 2 }}>
                     <Button
