@@ -114,7 +114,7 @@ export default function ForgetPassword() {
 
                             <Button
                                 type="submit"
-                                loading={loading}
+                                disabled={loading}
                                 variant="contained"
                             >
                                 Reset Password

@@ -126,7 +126,7 @@ export default function Login() {
                         />
 
                         <Button
-                            loading={loading}
+                            disabled={loading}
                             type="submit"
                             fullWidth
                             variant="contained"

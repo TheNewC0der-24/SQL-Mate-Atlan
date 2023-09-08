@@ -158,7 +158,7 @@ export default function SignUp() {
 
                         <Button
                             sx={{ mt: 3 }}
-                            loading={loading}
+                            disabled={loading}
                             type="submit"
                             fullWidth
                             variant="contained"
